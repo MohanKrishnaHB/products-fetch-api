@@ -11,7 +11,7 @@
     height: 150px;
 }
 .product-card-container .product-title {
-    max-height: 30px;
+    max-height: 32px;
     overflow: hidden;
     height: 100%;
     height: -moz-available;

@@ -22,8 +22,8 @@ function designProductElementByProductjson(product) {
                             <img src="${product.image}" alt="Product 1" class="img-fluid">
                         </div>
                         <div class="product-details-container">
-                            <h3 class="h3 mb-0 product-title">${product.title}</h3>
-                            <p class="small product-description mb-1">${product.description}</p>
+                            <h3 class="h3 mb-0 product-title" title="${product.title}">${product.title}</h3>
+                            <p class="small product-description mb-1" title="${product.description}>${product.description}</p>
                             <p class="h6">Rs. ${product.price}</p>
                         </div>
                     </div>
