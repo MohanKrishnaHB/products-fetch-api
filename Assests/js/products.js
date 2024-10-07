@@ -1,8 +1,3 @@
-const CONFIG = {
-    urls: {
-        products: "https://fakestoreapi.com/products"
-    }
-}
 async function fetchAndSetProducts() {
     try {
         $.get(CONFIG.urls.products, function(data, status){

@@ -1,29 +1,30 @@
-const CONFIG = {
-    email: "user@gmail.com",
-    password: "user123",
-    error: {
-        loginErrorMessage: "Invalid details!"
-    }
-}
 function login() {
+    event.preventDefault()
+    const allUsers = getAllUsers()
     $("#loginErrorMessage").hide();
     const email = $("input#email").val();
     const password = $("input#pwd").val();
-    console.log(email);
-    console.log(password);
     
-    if(email!=CONFIG.email || password!=CONFIG.password) {
-        event.preventDefault()
+    const loggedInUser = allUsers.filter((item) => (item.email == email && item.password == password))[0]
+
+    if(loggedInUser==undefined || loggedInUser==null) {
         $("#loginErrorMessage").html(CONFIG.error.loginErrorMessage);
         $("#loginErrorMessage").show();
+        return
     }
+    setSession(loggedInUser)
+    window.location = "dashboard.html"
 }
 
-function setDefaultUserNameAndPassword() {
-    $("input#email").val(CONFIG.email);
-    $("input#pwd").val(CONFIG.password);
+function setSession(loggedInUser) {
+    localStorage.setItem(CONFIG.localStorageKeys.loggedInUserId, loggedInUser.id)
 }
 
-$(document).ready(function () {
-    setDefaultUserNameAndPassword()
-})
+// function setDefaultUserNameAndPassword() {
+//     $("input#email").val(CONFIG.email);
+//     $("input#pwd").val(CONFIG.password);
+// }
+
+// $(document).ready(function () {
+//     setDefaultUserNameAndPassword()
+// })
