@@ -12,8 +12,11 @@ function login() {
         $("#loginErrorMessage").show();
         return
     }
-    setSession(loggedInUser)
-    window.location = "dashboard.html"
+    setSession(loggedInUser);
+    if(loggedInUser.fName=='admin')
+        window.location = "dashboard.html"
+    else
+        window.location = "products.html"
 }
 
 function setSession(loggedInUser) {
